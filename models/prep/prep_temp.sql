@@ -1,6 +1,6 @@
 WITH temp_daily AS (
     SELECT * 
-    FROM {{ref('staging_weather')}}
+    FROM {{ref('staging_rates')}}
 ),
 add_weekday AS (
     SELECT *,
