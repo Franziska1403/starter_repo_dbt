@@ -5,7 +5,7 @@ WITH temp_daily AS (
 add_weekday AS (
     SELECT *,
         to_chart (date, 'day') AS weekday,
-        date_part (date, 'DD') AS day_num
+        to_chart (date, 'DD') AS day_num
     FROM temp_daily
 )
 SELECT *
