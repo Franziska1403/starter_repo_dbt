@@ -8,13 +8,13 @@ with total_avg as (
         avgtemp_c,
         (maxtemp_c - mintemp_c) AS temperature_difference
     from {{(ref('prep_temp'))}}
-    group by city, date, year, maxtemp_c, mintemp_c,
+    group by city, date, maxtemp_c, mintemp_c
 ),
 /* season type here */
 season_type as (
     select 
         date, 
-        city
+        city,
         case
             when month_num in ('12', '01', '02') then 'winter'
             when month_num in ('03','04','05') then 'spring'
@@ -22,11 +22,11 @@ season_type as (
             ELSE 'fall'
     end as season
     from {{(ref('prep_temp'))}}
-    group by city, season
+    group by city, date
 ), 
 temp_evaluation as (
     SELECT
-        avgtemp_c 
+        avgtemp_c,
         case 
             when avgtemp_c is < 0 then 'freezing'
             when avgtemp_c is between 0.001 and 5 then 'very cold'
