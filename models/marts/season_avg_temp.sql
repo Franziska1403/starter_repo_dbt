@@ -6,7 +6,7 @@ with total_avg as (
         maxtemp_c, 
         mintemp_c,
         avgtemp_c
-        MAX(maxtemp_c) - MIN(mintemp_c) AS temperature_difference
+        maxtemp_c - mintemp_c AS temperature_difference
     from {{(ref('prep_temp'))}}
     group by city, date, year, maxtemp_c, mintemp_c,
 ),
