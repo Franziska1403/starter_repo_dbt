@@ -16,9 +16,9 @@ season_type as (
         date, 
         city
         case
-            when month_num in ('12', '1', '2') then 'winter'
-            when month_num in ('3','4','5') then 'spring'
-            when month_num in ('6','7','8') then 'summer'
+            when month_num in ('12', '01', '02') then 'winter'
+            when month_num in ('03','04','05') then 'spring'
+            when month_num in ('06','07','08') then 'summer'
             ELSE 'fall'
     end as season
     from {{(ref('prep_temp'))}}
