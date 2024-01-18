@@ -8,3 +8,4 @@ with total_avg as(
     group by city, country, year, month, lat, lon
 )
 select * from total_avg
+
