@@ -22,7 +22,7 @@ season_type as (
             ELSE 'fall'
     end as season
     from {{(ref('prep_temp'))}}
-    group by city, date, maxtemp_c, mintemp_c, avgtemp_c
+    group by city, date, maxtemp_c, mintemp_c, avgtemp_c, month_num
 ), 
 temp_evaluation as (
     SELECT
