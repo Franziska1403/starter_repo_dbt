@@ -40,11 +40,9 @@ temp_evaluation as (
             else 'not able to measure'
         end as temperature_feeling
     from {{(ref('prep_temp'))}}
-), 
+)
 select *
 from prep_temp 
 left join season_type using (date, city)
 left join temp_evaluation using (avgtemp_c);
-
-
-
+/* test */ 
