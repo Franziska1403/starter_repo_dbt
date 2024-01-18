@@ -8,7 +8,6 @@ with total_avg as (
         avgtemp_c,
         (maxtemp_c - mintemp_c) AS temperature_difference
     from {{(ref('prep_temp'))}}
-    group by city, date, maxtemp_c, mintemp_c
 ),
 /* season type here */
 season_type as (
@@ -22,7 +21,6 @@ season_type as (
             ELSE 'fall'
     end as season
     from {{(ref('prep_temp'))}}
-    group by city, date
 ), 
 temp_evaluation as (
     SELECT
