@@ -42,7 +42,6 @@ temp_evaluation as (
     from {{(ref('prep_temp'))}}
 )
 select *
-from prep_temp 
+from total_avg
 left join season_type using (date, city)
 left join temp_evaluation using (avgtemp_c);
-/* test */ 
