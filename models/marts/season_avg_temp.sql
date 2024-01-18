@@ -44,4 +44,4 @@ temp_evaluation as (
 select *
 from total_avg
 left join season_type using (date, city)
-left join temp_evaluation using (avgtemp_c);
+left join temp_evaluation using (avgtemp_c)
