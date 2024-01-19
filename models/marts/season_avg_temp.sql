@@ -44,7 +44,7 @@ temp_evaluation as (
 ), 
 date_org as (
     select 
-        date
+        date,
         date_part('year', date) as year, 
         date_part('month', date) as month, 
         date_part ('week', date) as week,
