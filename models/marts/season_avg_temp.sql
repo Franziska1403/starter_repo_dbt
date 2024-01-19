@@ -31,7 +31,7 @@ temp_evaluation as (
             when avgtemp_c < 0 then 'freezing'
             when avgtemp_c between 0.001 and 5 then 'very cold'
             when avgtemp_c between 5.1 and 12 then 'cold'
-            when avgtemp_c between 12.1 and 17 then 'a little cold'
+            /* when avgtemp_c between 12.1 and 17 then 'a little cold' */
             when avgtemp_c between 17.1 and 22 then 'warm'
             when avgtemp_c between 22.1 and 30 then 'very warm'
             when avgtemp_c between 30.1 and 35 then 'hot'
