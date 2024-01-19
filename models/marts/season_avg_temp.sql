@@ -56,4 +56,5 @@ select *
 from total_avg
 left join season_type using (date, city)
 left join temp_evaluation using (avgtemp_c)
-left join date_org on total_avg.date = date_org.date;
+left join date_org on total_avg.date = date_org.date
+;
