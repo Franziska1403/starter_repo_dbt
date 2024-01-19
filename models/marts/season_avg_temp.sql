@@ -41,8 +41,18 @@ temp_evaluation as (
         end as temperature_feeling
     from {{(ref('prep_temp'))}}
     group by city, date, maxtemp_c, mintemp_c, avgtemp_c
+), 
+date_org as (
+    select 
+        date_part('year', date) as year, 
+        date_part('month', date) as month, 
+        date_part ('week', date) as week,
+        date_part('day', date) as day
+    from {{(ref('prep_temp'))}}
+    group by date
 )
 select *
 from total_avg
 left join season_type using (date, city)
 left join temp_evaluation using (avgtemp_c)
+left join date_org (date);
